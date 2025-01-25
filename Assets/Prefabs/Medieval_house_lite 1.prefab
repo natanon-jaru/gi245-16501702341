@@ -11355,7 +11355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2270074732910834935}
   m_Layer: 0
-  m_Name: Medieval_house_lite
+  m_Name: Medieval_house_lite 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
