@@ -14,7 +14,7 @@ public abstract class Character : MonoBehaviour
     protected NavMeshAgent navAgent;
     
     protected Animator anim;
-    public Animator Animator { get { return anim; } }
+    public Animator Anim { get { return anim; } }
 
     [SerializeField] 
     protected CharState state;
