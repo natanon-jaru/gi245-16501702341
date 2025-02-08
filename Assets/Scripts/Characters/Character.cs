@@ -20,6 +20,12 @@ public abstract class Character : MonoBehaviour
     protected CharState state;
     public CharState State { get { return state; } }
 
+    [SerializeField] protected GameObject ringSelection;
+    public GameObject RingSelection
+    {
+        get { return ringSelection; }
+    }
+
     protected void WalkUpdate()
     {
         float distance = Vector3.Distance(transform.position, navAgent.destination);
@@ -67,5 +73,10 @@ public abstract class Character : MonoBehaviour
         }
 
         SetState(CharState.Walk);
+    }
+
+    public void ToggleRingSelection(bool flag)
+    {
+        ringSelection.SetActive(flag);
     }
 }
