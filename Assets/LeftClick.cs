@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Hero : Character
+public class LeftClick : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -11,11 +11,6 @@ public class Hero : Character
     // Update is called once per frame
     void Update()
     {
-        switch (state)
-        {
-            case CharState.Walk
-                WalkUpdate();
-                break;
-        }
+        
     }
 }
