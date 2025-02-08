@@ -13,7 +13,7 @@ public class Hero : Character
     {
         switch (state)
         {
-            case CharState.Walk
+            case CharState.Walk:
                 WalkUpdate();
                 break;
         }

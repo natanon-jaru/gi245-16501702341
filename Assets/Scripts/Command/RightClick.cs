@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LeftClick : MonoBehaviour
+public class RightClick : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
