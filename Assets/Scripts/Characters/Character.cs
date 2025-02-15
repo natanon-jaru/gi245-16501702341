@@ -163,6 +163,10 @@ public abstract class Character : MonoBehaviour
             SetState(CharState.Attack);
             Attack(); // First Attack
         }
+        else
+        {
+            ToAttackCharacter(curCharTarget);
+        }
     }
 
     protected void Attack()
