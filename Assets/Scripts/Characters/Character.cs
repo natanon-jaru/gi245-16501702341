@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 public enum CharState
@@ -36,6 +38,8 @@ public abstract class Character : MonoBehaviour
 
     [SerializeField] protected float attackRange = 2f;
 
+    [SerializeField] protected int attackDamage = 3;
+
     [SerializeField] protected float attackCoolDown = 2f;
 
     [SerializeField] protected float attackTimer = 0f;
@@ -47,6 +51,22 @@ public abstract class Character : MonoBehaviour
 
         if (distance <= navAgent.stoppingDistance)
             SetState(CharState.Idle);
+    }
+
+    protected virtual IEnumerator DestroyObject()
+    {
+        yield return new WaitForSeconds(5f);
+            Destroy(gameObject);
+    }
+
+    protected virtual void Die()
+    {
+        navAgent.isStopped = true;
+        SetState(CharState.Die);
+        
+        anim.SetTrigger("Die");
+
+        StartCoroutine(DestroyObject());
     }
 
     void Awake()
@@ -118,8 +138,66 @@ public abstract class Character : MonoBehaviour
         }
 
         float distance = Vector3.Distance(transform.position, curCharTarget.transform.position);
-        
-        if(distance <= attackRange)
+
+        if (distance <= attackRange)
+        {
             SetState(CharState.Attack);
+            Attack(); // First Attack
+        }
+    }
+
+    protected void Attack()
+    {
+        transform.LookAt(curCharTarget.transform);
+        
+        anim.SetTrigger("Attack");
+        
+        //attack logic
+        AttackLogic();
+    }
+
+    protected void AttackUpdate()
+    {
+        if (curCharTarget == null || curCharTarget.CurHP <= 0)
+        {
+            SetState(CharState.Idle);
+            return;
+        }
+
+        navAgent.isStopped = true;
+
+        attackTimer += Time.deltaTime;
+        if (attackTimer >= attackCoolDown)
+        {
+            attackTimer = 0f;
+            Attack();
+        }
+
+        float distance = Vector3.Distance(transform.position, curCharTarget.transform.position);
+
+        if (distance > attackRange)
+            SetState(CharState.WalkToEnemy);
+           
+    }
+
+    public void ReceiveDamage(Character enemy)
+    {
+        if(curHP <= 0 || state == CharState.Die)
+            return;
+
+        curHP -= enemy.attackDamage;
+        if (curHP <= 0)
+        {
+            curHP = 0;
+            Die();
+        }
+    }
+
+    protected void AttackLogic()
+    {
+        Character target = curCharTarget.GetComponent<Character>();
+        
+        if(target != null)
+            target.ReceiveDamage(this);
     }
 }
