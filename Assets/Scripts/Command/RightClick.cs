@@ -38,6 +38,8 @@ public class RightClick : MonoBehaviour
     {
         if(c != null)
             c.WalkToPosition(hit.point);
+        
+        CreateVFX(hit.point, VFXManager.instance.DoubleRingMarker);
     }
 
     private void TryCommand(Vector2 screenPos)
@@ -55,5 +57,14 @@ public class RightClick : MonoBehaviour
                     break;
             }
         }
+    }
+
+    private void CreateVFX(Vector3 pos, GameObject vfxPrefab)
+    {
+        if(vfxPrefab == null)
+            return;
+        
+        Instantiate(vfxPrefab,
+            pos + new Vector3(0f,0.1f,0f), Quaternion.identity);
     }
 }
