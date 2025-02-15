@@ -3,6 +3,8 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering;
+
 public enum CharState
 {
     Idle,
@@ -16,33 +18,50 @@ public enum CharState
 public abstract class Character : MonoBehaviour
 {
     protected NavMeshAgent navAgent;
-    
-    protected Animator anim;
-    public Animator Anim { get { return anim; } }
 
-    [SerializeField] 
-    protected CharState state;
-    public CharState State { get { return state; } }
+    protected Animator anim;
+
+    public Animator Anim
+    {
+        get { return anim; }
+    }
+
+    [SerializeField] protected CharState state;
+
+    public CharState State
+    {
+        get { return state; }
+    }
 
     [SerializeField] protected GameObject ringSelection;
+
     public GameObject RingSelection
     {
         get { return ringSelection; }
     }
 
-    [SerializeField] 
-    protected int curHP = 10;
-    public int CurHP { get { return curHP; } }
+    [SerializeField] protected int curHP = 10;
 
-    [SerializeField] protected Character curCharTarget;
+    public int CurHP
+    {
+        get { return curHP; }
+    }
+
+    [SerializeField] protected Character curCharTarget; 
+    public Character CurCharTarget {get{return curCharTarget;} set { curCharTarget = value; } }
 
     [SerializeField] protected float attackRange = 2f;
+    public float AttackRange { get { return attackRange; } }
 
     [SerializeField] protected int attackDamage = 3;
 
     [SerializeField] protected float attackCoolDown = 2f;
 
     [SerializeField] protected float attackTimer = 0f;
+
+    [SerializeField] 
+    protected float findingRange = 20f;
+    public float FindingRange { get { return findingRange; } }
 
     protected void WalkUpdate()
     {
@@ -199,5 +218,18 @@ public abstract class Character : MonoBehaviour
         
         if(target != null)
             target.ReceiveDamage(this);
+    }
+
+    public bool IsMyEnemy(string targetTag)
+    {
+        string myTag = gameObject.tag;
+
+        if ((myTag == "Hero" || myTag == "Player") && targetTag == "Enemy")
+            return true;
+
+        if (myTag == "Enemy" && (targetTag == "Hero" || targetTag == "Player"))
+            return true;
+
+        return false;
     }
 }
