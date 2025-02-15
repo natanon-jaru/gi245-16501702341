@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 public enum CharState
 {
     Idle,
     Walk,
+    WalkToEnemy,
     Attack,
     Hit,
     Die
@@ -25,6 +27,18 @@ public abstract class Character : MonoBehaviour
     {
         get { return ringSelection; }
     }
+
+    [SerializeField] 
+    protected int curHP = 10;
+    public int CurHP { get { return curHP; } }
+
+    [SerializeField] protected Character curCharTarget;
+
+    [SerializeField] protected float attackRange = 2f;
+
+    [SerializeField] protected float attackCoolDown = 2f;
+
+    [SerializeField] protected float attackTimer = 0f;
 
     protected void WalkUpdate()
     {
@@ -78,5 +92,34 @@ public abstract class Character : MonoBehaviour
     public void ToggleRingSelection(bool flag)
     {
         ringSelection.SetActive(flag);
+    }
+
+    public void ToAttackCharacter(Character target)
+    {
+        if(curHP <= 0 || state == CharState.Die)
+            return;
+        
+        //lock target
+        curCharTarget = target;
+        
+        //start walking to enemy
+        navAgent.SetDestination(target.transform.position);
+        navAgent.isStopped = false;
+        
+        SetState(CharState.WalkToEnemy);
+    }
+
+    public void WalkToEnemyUpdate()
+    {
+        if (curCharTarget == null)
+        {
+            SetState(CharState.Idle);
+            return;
+        }
+
+        float distance = Vector3.Distance(transform.position, curCharTarget.transform.position);
+        
+        if(distance <= attackRange)
+            SetState(CharState.Attack);
     }
 }

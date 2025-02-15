@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Enemy : Character
@@ -15,6 +16,9 @@ public class Enemy : Character
         {
             case CharState.Walk:
                 WalkUpdate();
+                break;
+            case CharState.WalkToEnemy:
+                WalkToEnemyUpdate();
                 break;
         }
     }

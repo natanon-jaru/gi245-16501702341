@@ -4374,7 +4374,7 @@ GameObject:
   - component: {fileID: 6631166294329872107}
   m_Layer: 6
   m_Name: Goblin_Shaman 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4493,6 +4493,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   ringSelection: {fileID: 7828132583255678288}
+  curHP: 10
+  curCharTarget: {fileID: 0}
+  attackRange: 2
+  attackCoolDown: 2
+  attackTimer: 0
 --- !u!114 &6631166294329872107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5033,7 +5038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1107157273978836427, guid: 84658617c66fcbd47899bce066046d28, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2578521146470503909, guid: 84658617c66fcbd47899bce066046d28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5074,6 +5079,18 @@ PrefabInstance:
     - target: {fileID: 2578521146470503909, guid: 84658617c66fcbd47899bce066046d28, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854972973858266312, guid: 84658617c66fcbd47899bce066046d28, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854972973858266312, guid: 84658617c66fcbd47899bce066046d28, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.04794642
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854972973858266312, guid: 84658617c66fcbd47899bce066046d28, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
