@@ -25,21 +25,25 @@ public class VFXManager : MonoBehaviour
         
     }
 
-    public void LoadMagicVFX(int id, Vector3 posA, float time)
+    public void LoadMagic(int id, Vector3 posA, float time)
     {
         //Load Magic
-        if (magicVFX[id] != null)
+        if (magicVFX[id] == null)
+        {
             return;
+        }
         GameObject objLoad = Instantiate(MagicVFX[id], posA, Quaternion.identity);
         Destroy(objLoad, time);
+        
     }
 
     public void ShootMagic(int id, Vector3 posA, Vector3 posB, float time)
     {
         //Shoot Magic
         if (magicVFX[id] == null)
+        {
             return;
-        
+        }
         GameObject objShoot = Instantiate(magicVFX[id], posA, Quaternion.identity);
         objShoot.transform.position = Vector3.LerpUnclamped(posA, posB, time);
         Destroy(objShoot, time);

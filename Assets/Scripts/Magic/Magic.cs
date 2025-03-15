@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class Magic : MonoBehaviour
+public class Magic
 {
     [SerializeField] 
     private int id;
