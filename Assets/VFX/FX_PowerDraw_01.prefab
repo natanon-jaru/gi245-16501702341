@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198260048058854124}
   - component: {fileID: 199816333619576516}
   m_Layer: 0
-  m_Name: FX_PowerDraw_01 1
+  m_Name: FX_PowerDraw_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

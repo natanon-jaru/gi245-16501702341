@@ -2774,6 +2774,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doubleRingMarker: {fileID: 6044037666520248651, guid: 3dde7e5dd0c254d49a715e9fe6323a1a, type: 3}
+  magicVFX:
+  - {fileID: 1236643204216662, guid: ab7509b3be2a63945b8d8b6511cab3e3, type: 3}
+  - {fileID: 1722081097931586, guid: c13a194e4e4a4794cb3b82c9833b7dc7, type: 3}
 --- !u!114 &495696422
 MonoBehaviour:
   m_ObjectHideFlags: 0
