@@ -80,6 +80,7 @@ public abstract class Character : MonoBehaviour
     
     
     protected VFXManager vfxManager;
+    protected UIManager uiManager;
 
     protected void WalkUpdate()
     {
@@ -257,9 +258,10 @@ public abstract class Character : MonoBehaviour
 
         return false;
     }
-    public void charInit(VFXManager vfxM)
+    public void charInit(VFXManager vfxM, UIManager uiM)
     {
         vfxManager =vfxM;
+        uiManager = uiM;
     }
 
     protected void MagicCastLogic(Magic magic)
@@ -282,6 +284,9 @@ public abstract class Character : MonoBehaviour
         isMagicMode = false;
 
         SetState(CharState.Idle);
+        if (uiManager != null)
+            uiManager.IsOnCurToggleMagic(false);
+        
     }
 
     private IEnumerator LoadMagicCast(Magic curMagicCast){

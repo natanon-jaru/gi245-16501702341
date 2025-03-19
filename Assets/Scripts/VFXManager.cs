@@ -32,7 +32,7 @@ public class VFXManager : MonoBehaviour
         {
             return;
         }
-        GameObject objLoad = Instantiate(MagicVFX[id], posA, Quaternion.identity);
+        GameObject objLoad = Instantiate(MagicVFX[id], posA + new Vector3(0,1.4f,0), Quaternion.identity);
         Destroy(objLoad, time);
         
     }
@@ -44,8 +44,8 @@ public class VFXManager : MonoBehaviour
         {
             return;
         }
-        GameObject objShoot = Instantiate(magicVFX[id], posA, Quaternion.identity);
-        objShoot.transform.position = Vector3.LerpUnclamped(posA, posB, time);
+        GameObject objShoot = Instantiate(magicVFX[id], posA+ new Vector3(0,1.4f,0), Quaternion.identity);
+        objShoot.transform.position = Vector3.LerpUnclamped(posA, posB+ new Vector3(0,1f,0), time);
         Destroy(objShoot, time);
     }
 }
