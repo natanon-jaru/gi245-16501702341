@@ -13,6 +13,16 @@ public class UIManager : MonoBehaviour
     public Toggle[] ToggleMagic { get { return toggleMagic; } }
 
     [SerializeField] private int curToggleMagicID = -1;
+    
+    [SerializeField]
+    private GameObject blackImage;
+    [SerializeField]
+    private GameObject inventoryPanel;
+    [SerializeField]
+    private GameObject itemUIPrefab;
+    [SerializeField]
+    private GameObject[] slots;
+    
     public RectTransform SelectionBox
     {
         get { return selectionBox; }
@@ -93,5 +103,52 @@ public class UIManager : MonoBehaviour
     public void IsOnCurToggleMagic(bool flag)
     {
         toggleMagic[curToggleMagicID].isOn = flag;
+    }
+    
+    public void ToggleInventoryPanel()
+    {
+        if (!inventoryPanel.activeInHierarchy)
+        {
+            inventoryPanel.SetActive(true);
+            blackImage.SetActive(true);
+            ShowInventory();
+        }
+        else
+        {
+            inventoryPanel.SetActive(false);
+            blackImage.SetActive(false);
+            ClearInventory();
+        }
+    }
+    
+    public void ClearInventory()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].transform.childCount > 0)
+            {
+                Transform child = slots[i].transform.GetChild(0);
+                Destroy(child.gameObject);
+            }
+        }
+    }
+
+    public void ShowInventory()
+    {
+        if(PartyManager.instance.SelectChars.Count <= 0)
+        {
+            return;
+        }
+
+        Character hero = PartyManager.instance.SelectChars[0];
+
+        for (int i = 0; i < InventoryManager.MAXSLOT; i++)
+        {
+            if(hero.InventoryItems[i] != null)
+            {
+                GameObject itemobj = Instantiate(itemUIPrefab, slots[i].transform);
+                itemobj.GetComponent<Image>().sprite = hero.InventoryItems[i].Icon;
+            }
+        }
     }
 }

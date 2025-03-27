@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 681642977d8ebfd40bd6ca037cc13978, type: 3}
-  m_Name: 003_ShieldA
+  m_Name: 005_ManaPotion
   m_EditorClassIdentifier: 
-  id: 2
-  itemName: Shield A
+  id: 5
+  itemName: Mana Potion
   type: 0
-  icon: {fileID: 21300000, guid: 9d469f81f2208bc4ca91a35ddd1965a4, type: 3}
-  power: 0
+  icon: {fileID: 21300000, guid: 1fec7560514836545afa4e5c52458f05, type: 3}
+  power: 10
