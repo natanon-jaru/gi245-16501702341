@@ -7,6 +7,10 @@ public class VFXManager : MonoBehaviour
 
     [SerializeField] private GameObject[] magicVFX;
     public GameObject[] MagicVFX { get { return magicVFX; } }
+    
+    [SerializeField]
+    private MagicData[] magicData;
+    public MagicData[] MagicData {get { return magicData; } }
 
     public static VFXManager instance;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
