@@ -15,23 +15,12 @@ public class InventoryManager : MonoBehaviour
     public const int MAXSLOT = 16;
     
     public static InventoryManager instance;
-
+    
     public bool AddItem(Character character, int id)
     {
-        if (id < 0 || id >= itemData.Length)
-        {
-            Debug.LogError("Invalid item ID: " + id);
-            return false;
-        }
-
-        if (character.InventoryItems == null || character.InventoryItems.Length < MAXSLOT)
-        {
-            character.InventoryItems = new Item[MAXSLOT];
-        }
-
         Item item = new Item(itemData[id]);
 
-        for (int i = 0; i < MAXSLOT; i++)
+        for (int i = 0; i < character.InventoryItems.Length; i++)
         {
             if (character.InventoryItems[i] == null)
             {
@@ -42,6 +31,22 @@ public class InventoryManager : MonoBehaviour
 
         Debug.Log("Inventory Full");
         return false;
+    }
+    
+    public void SaveItemBag(int index, Item item)
+    {
+        if(PartyManager.instance.SelectChars.Count == 0)
+            return;
+        
+        PartyManager.instance.SelectChars[0].InventoryItems[index] = item;
+    }
+
+    public void RemoveItemBag(int index)
+    {
+        if(PartyManager.instance.SelectChars.Count == 0)
+            return;
+        
+        PartyManager.instance.SelectChars[0].InventoryItems[index] = null;
     }
     
     void Awake()

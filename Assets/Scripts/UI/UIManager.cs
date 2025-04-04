@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        InitSlots();
     }
 
     // Update is called once per frame
@@ -142,13 +142,25 @@ public class UIManager : MonoBehaviour
 
         Character hero = PartyManager.instance.SelectChars[0];
 
-        for (int i = 0; i < InventoryManager.MAXSLOT; i++)
+        for (int i = 0; i < hero.InventoryItems.Length; i++)
         {
             if(hero.InventoryItems[i] != null)
             {
                 GameObject itemobj = Instantiate(itemUIPrefab, slots[i].transform);
-                itemobj.GetComponent<Image>().sprite = hero.InventoryItems[i].Icon;
+                ItemDrag itemDrag = itemobj.GetComponent<ItemDrag>();
+                
+                itemDrag.Item = hero.InventoryItems[i];
+                itemDrag.IconParent = slots[i].transform;
+                itemDrag.Image.sprite = hero.InventoryItems[i].Icon;
             }
+        }
+    }
+
+    private void InitSlots()
+    {
+        for (int i = 0; i < InventoryManager.MAXSLOT; i++)
+        {
+            slots[i].GetComponent<InventorySlot>().ID = i;
         }
     }
 }

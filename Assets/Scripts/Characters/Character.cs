@@ -95,6 +95,7 @@ public abstract class Character : MonoBehaviour
 
     protected VFXManager vfxManager;
     protected UIManager uiManager;
+    protected InventoryManager invManager;
 
     protected void WalkUpdate()
     {
@@ -272,10 +273,13 @@ public abstract class Character : MonoBehaviour
 
         return false;
     }
-    public void charInit(VFXManager vfxM, UIManager uiM)
+    public void charInit(VFXManager vfxM,UIManager uiM,InventoryManager invM)
     {
         vfxManager =vfxM;
         uiManager = uiM;
+        invManager = invM;
+
+        InventoryItems = new Item[InventoryManager.MAXSLOT];
     }
 
     protected void MagicCastLogic(Magic magic)
