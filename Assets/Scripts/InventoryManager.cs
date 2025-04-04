@@ -63,7 +63,7 @@ public class InventoryManager : MonoBehaviour
                 break;
         }
         
-        GameObject itemObj = Instantiate(itemPrefabs[id], pos, Quaternion.identity);
+        GameObject itemObj = Instantiate(itemPrefabs[id], pos + new Vector3(0,1,0), Quaternion.identity);
         itemObj.AddComponent<ItemPick>();
         
         ItemPick itemPick = itemObj.GetComponent<ItemPick>();
