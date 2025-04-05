@@ -14,14 +14,21 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private int curToggleMagicID = -1;
     
-    [SerializeField]
-    private GameObject blackImage;
-    [SerializeField]
-    private GameObject inventoryPanel;
-    [SerializeField]
-    private GameObject itemUIPrefab;
-    [SerializeField]
-    private GameObject[] slots;
+    [SerializeField] private GameObject blackImage;
+    
+    [SerializeField] private GameObject inventoryPanel;
+
+    [SerializeField] private GameObject grayImage;
+
+    [SerializeField] private GameObject itemDialog;
+    
+    [SerializeField] private GameObject itemUIPrefab;
+    
+    [SerializeField] private GameObject[] slots;
+
+    [SerializeField] private ItemDrag curItemDrag;
+
+    [SerializeField] private int curSlotId;
     
     public RectTransform SelectionBox
     {
@@ -148,6 +155,8 @@ public class UIManager : MonoBehaviour
             {
                 GameObject itemobj = Instantiate(itemUIPrefab, slots[i].transform);
                 ItemDrag itemDrag = itemobj.GetComponent<ItemDrag>();
+
+                itemDrag.UIManager = this;
                 
                 itemDrag.Item = hero.InventoryItems[i];
                 itemDrag.IconParent = slots[i].transform;
@@ -162,5 +171,29 @@ public class UIManager : MonoBehaviour
         {
             slots[i].GetComponent<InventorySlot>().ID = i;
         }
+    }
+
+    public void SetCurItemInUse(ItemDrag itemDrag, int index)
+    {
+        curItemDrag = itemDrag;
+        curSlotId = index;
+    }
+
+    public void ToggleItemDialog(bool flag)
+    {
+        grayImage.SetActive(flag);
+        itemDialog.SetActive(flag);
+    }
+
+    public void DeleteItemIcon()
+    {
+        Destroy(curItemDrag.gameObject); //destroy Icon
+    }
+
+    public void ClickDrinkConsumable() //Map with Button "Use"
+    {
+        InventoryManager.instance.DrinkConsumableItem(curItemDrag.Item, curSlotId);
+        DeleteItemIcon();
+        ToggleItemDialog(false);
     }
 }
