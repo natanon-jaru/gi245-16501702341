@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 681642977d8ebfd40bd6ca037cc13978, type: 3}
-  m_Name: 003_HelmetA
+  m_Name: 003_ShieldB
   m_EditorClassIdentifier: 
   id: 3
-  itemName: Helmet A
-  type: 1
-  icon: {fileID: 21300000, guid: 79718231a21aa5d47be7a64cdf40b67b, type: 3}
-  power: 0
+  itemName: Shield B
+  type: 2
+  icon: {fileID: 21300000, guid: 1fec7560514836545afa4e5c52458f05, type: 3}
+  power: 6
+  prefabID: 3
