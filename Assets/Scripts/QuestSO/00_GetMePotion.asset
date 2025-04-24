@@ -17,7 +17,7 @@ MonoBehaviour:
   status: 0
   questName: Get Me a Potion
   questDetail: Give Ben a bottle of blue health potion.
-  questItemId: 0
+  questItemId: 10
   questDialogue:
   - Hello, adventurers. How are you?
   - Can I ask you something?

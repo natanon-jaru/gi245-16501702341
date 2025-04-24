@@ -66,8 +66,59 @@ public class QuestManager : MonoBehaviour
         }
         return success;
     }
-    
-    
+
+    public bool CheckLastDialogue(int i)
+    {
+        if (i == curQuest.QuestDialogue.Length - 1) 
+            return true;
+        else
+            return false;
+    }
+
+    public string NextDialogue(int i)
+    {
+        if (i < curQuest.QuestDialogue.Length)
+            return curQuest.QuestDialogue[i];
+        else
+            return "";
+    }
+
+    public void RejectQuest()
+    {
+        curQuest.Status = QuestStatus.Reject;
+    }
+
+    public void AcceptQuest()
+    {
+        curQuest.Status = QuestStatus.InProgress;
+        PartyManager.instance.QuestList.Add(curQuest);
+    }
+
+    public bool DeliverItem()
+    {
+        return InventoryManager.instance.RemoveItemFromParty(curQuest.QuestItemId);
+    }
+
+    public bool NpcGiveReward()
+    {
+        if (PartyManager.instance.QuestList.Count == 0)
+            return false;
+
+        Character hero = PartyManager.instance.SelectChars[0];
+        
+        Item item = new Item(InventoryManager.instance.ItemData[curQuest.RewardItemId]);
+
+        for (int i = 0; i < 16; i++)
+        {
+            if (hero.InventoryItems[i] == null)
+            {
+                hero.InventoryItems[i] = item;
+                curQuest.Status = QuestStatus.Finish;
+                return true;
+            }
+        }
+        return false;
+    }
 
     // Update is called once per frame
     void Update()

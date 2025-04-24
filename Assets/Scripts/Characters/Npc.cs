@@ -30,4 +30,5 @@ public class Npc : Character
         }
         return null;
     }
+    
 }
