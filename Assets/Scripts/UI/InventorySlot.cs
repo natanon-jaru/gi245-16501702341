@@ -67,7 +67,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         }
         //Set Item A on Slot B
         itemDragA.IconParent = transform;
-        inventoryManager.SaveItemBag(slotA.ID, itemDragA.Item);
+        inventoryManager.SaveItemBag(id, itemDragA.Item);
     }
 
     // Update is called once per frame
