@@ -47,6 +47,7 @@ public class PartyManager : MonoBehaviour
         InventoryManager.instance.AddItem(members[0], 1);
         InventoryManager.instance.AddItem(members[0], 2);
         InventoryManager.instance.AddItem(members[0], 3);
+        InventoryManager.instance.AddItem(members[0], 7);
         InventoryManager.instance.AddItem(members[0], 10);
 
         InventoryManager.instance.AddItem(members[1], 0); //Health Potion
