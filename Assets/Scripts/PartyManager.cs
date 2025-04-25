@@ -43,13 +43,17 @@ public class PartyManager : MonoBehaviour
         members[1].MagicSkills.Add(new Magic(VFXManager.instance.MagicData[4]));
         members[1].MagicSkills.Add(new Magic(VFXManager.instance.MagicData[5]));
 
+        //Inventory of Member 0 = male
         InventoryManager.instance.AddItem(members[0], 0); //Health Potion
         InventoryManager.instance.AddItem(members[0], 1);
         InventoryManager.instance.AddItem(members[0], 2);
         InventoryManager.instance.AddItem(members[0], 3);
         InventoryManager.instance.AddItem(members[0], 7);
         InventoryManager.instance.AddItem(members[0], 10);
+        InventoryManager.instance.AddItem(members[0], 11);
+        InventoryManager.instance.AddItem(members[0], 12);
 
+        //Inventory of Member 0 = female
         InventoryManager.instance.AddItem(members[1], 0); //Health Potion
         InventoryManager.instance.AddItem(members[1], 1); //Sword
         InventoryManager.instance.AddItem(members[1], 2); //Shield A
@@ -60,6 +64,8 @@ public class PartyManager : MonoBehaviour
         InventoryManager.instance.AddItem(members[1], 7);
         InventoryManager.instance.AddItem(members[1], 8);
         InventoryManager.instance.AddItem(members[1], 10);
+        InventoryManager.instance.AddItem(members[1], 11);
+        InventoryManager.instance.AddItem(members[1], 12);
         
         UIManager.instance.ShowMagicToggles();
     }

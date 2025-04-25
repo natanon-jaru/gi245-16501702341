@@ -47,6 +47,12 @@ public class InventorySlot : MonoBehaviour, IDropHandler
                 {
                     return;
                 }
+            }else if (slotA.ItemType == ItemType.Weapon)
+            {
+                if (itemDragB.Item.Type != slotA.ItemType)
+                {
+                    return;
+                } 
             }
             
             //Remove Item A from Slot A
