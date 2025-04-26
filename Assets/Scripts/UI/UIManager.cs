@@ -62,6 +62,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject btnNotFinish;
     
     [SerializeField] private TMP_Text btnNotFinishText;
+
+    [SerializeField]
+    private Toggle[] toggleAvatar;
+    public Toggle[] ToggleAvatar { get { return toggleAvatar; } set { toggleAvatar = value; }}
     
     public RectTransform SelectionBox
     {
@@ -79,6 +83,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         InitSlots();
+        MapToggleAvatar();
     }
 
     // Update is called once per frame
@@ -373,5 +378,30 @@ public class UIManager : MonoBehaviour
         Debug.Log("Cannot Finish Quest");
         ToggleDialogueBox(false);
     }
+
+    public void MapToggleAvatar()
+    {
+        foreach(Toggle t in toggleAvatar)
+            t.gameObject.SetActive(false);
+
+        for(int i = 0; i < PartyManager.instance.Members.Count; i++)
+        {
+            toggleAvatar[i].gameObject.SetActive(true);
+        }
+        toggleAvatar[0].isOn = true; //Select first hero
+    }
     
+    public void SelectHeroByAvatar(int i)
+    {
+        if (ToggleAvatar[i].isOn)
+        {
+            //Debug.Log($"is On : {i}")
+            PartyManager.instance.SelectSingleHeroByToggle(i);
+        }
+        else //isOn is false
+        {
+            //Debug.Log($"is Off:  {i}")
+            PartyManager.instance.UnSelectSingleHeroByToggle(i);
+        }
+    }
 }
