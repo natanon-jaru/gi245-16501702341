@@ -5532,7 +5532,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Hero
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3cd57b48cb32aa2408ee0460d689be68, type: 2}
   m_sharedMaterial: {fileID: -7244873375232470608, guid: 3cd57b48cb32aa2408ee0460d689be68, type: 2}
@@ -10856,7 +10856,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1052806459}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1407006018}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ToggleCharPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1052806459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12482,8 +12494,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -14064,6 +14076,11 @@ MonoBehaviour:
   - {fileID: 1098982903}
   - {fileID: 155429555}
   - {fileID: 838071813}
+  charPanel: {fileID: 1751265329}
+  charNameText: {fileID: 2002639278}
+  statText: {fileID: 1753006394}
+  abilityText: {fileID: 1217511833}
+  heroImage: {fileID: 1506140359}
 --- !u!1 &1414649474
 GameObject:
   m_ObjectHideFlags: 0
@@ -14873,7 +14890,7 @@ GameObject:
   - component: {fileID: 1506140360}
   - component: {fileID: 1506140359}
   m_Layer: 5
-  m_Name: Image
+  m_Name: CharImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16654,8 +16671,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
