@@ -126,6 +126,7 @@ public abstract class Character : MonoBehaviour
     protected VFXManager vfxManager;
     protected UIManager uiManager;
     protected InventoryManager invManager;
+    protected PartyManager partyManager;
 
     protected void WalkUpdate()
     {
@@ -312,11 +313,12 @@ public abstract class Character : MonoBehaviour
 
         return false;
     }
-    public void charInit(VFXManager vfxM,UIManager uiM,InventoryManager invM)
+    public void CharInit(VFXManager vfxM,UIManager uiM,InventoryManager invM, PartyManager partyM)
     {
         vfxManager =vfxM;
         uiManager = uiM;
         invManager = invM;
+        partyManager = partyM;
 
         InventoryItems = new Item[InventoryManager.MAXSLOT];
     }

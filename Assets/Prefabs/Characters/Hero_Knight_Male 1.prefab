@@ -2848,7 +2848,7 @@ GameObject:
   - component: {fileID: 8226092842765012784}
   m_Layer: 6
   m_Name: Hero_Knight_Male 1
-  m_TagString: Untagged
+  m_TagString: Hero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2969,7 +2969,7 @@ MonoBehaviour:
   charName: 
   state: 0
   ringSelection: {fileID: 5844002929090151513}
-  curHP: 10
+  curHP: 100
   maxHP: 100
   curCharTarget: {fileID: 0}
   attackRange: 2
@@ -2997,6 +2997,7 @@ MonoBehaviour:
     icon: {fileID: 0}
     power: 0
     prefabID: 0
+    normalPrice: 0
   weaponHand: {fileID: 496550}
   weaponObj: {fileID: 0}
   weaponPower: 0
@@ -3007,17 +3008,19 @@ MonoBehaviour:
     icon: {fileID: 0}
     power: 0
     prefabID: 0
+    normalPrice: 0
   shieldHand: {fileID: 483062}
   shieldObj: {fileID: 0}
   defensePower: 0
   exp: 0
-  level: 0
-  strength: 0
-  dexterity: 0
-  constitution: 0
-  intelligence: 0
-  wisdom: 0
-  charisma: 0
+  level: 1
+  nextExp: 30
+  strength: 18
+  dexterity: 10
+  constitution: 18
+  intelligence: 12
+  wisdom: 10
+  charisma: 9
 --- !u!114 &8708667962927571346
 MonoBehaviour:
   m_ObjectHideFlags: 0

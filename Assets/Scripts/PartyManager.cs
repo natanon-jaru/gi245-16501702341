@@ -19,6 +19,8 @@ public class PartyManager : MonoBehaviour
     private List<Quest> questList = new List<Quest>();
     public List<Quest> QuestList { get { return questList; } }
 
+    [SerializeField] private int totalExp;
+    
     public static PartyManager instance;
 
     [SerializeField] private int partyMoney = 1000;
@@ -34,11 +36,11 @@ public class PartyManager : MonoBehaviour
     {
         foreach (Character c in members)
         {
-            c.charInit(VFXManager.instance, UIManager.instance,InventoryManager.instance);
+            c.CharInit(VFXManager.instance, UIManager.instance,InventoryManager.instance, this);
         }
         
         SelectSingleHero(0);
-        members[0].MagicSkills.Add(new Magic(VFXManager.instance.MagicData[0]));
+        /*members[0].MagicSkills.Add(new Magic(VFXManager.instance.MagicData[0]));
         members[0].MagicSkills.Add(new Magic(VFXManager.instance.MagicData[1]));
         members[0].MagicSkills.Add(new Magic(VFXManager.instance.MagicData[2]));
         
@@ -68,7 +70,7 @@ public class PartyManager : MonoBehaviour
         InventoryManager.instance.AddItem(members[1], 8);
         InventoryManager.instance.AddItem(members[1], 10);
         InventoryManager.instance.AddItem(members[1], 11);
-        InventoryManager.instance.AddItem(members[1], 12);
+        InventoryManager.instance.AddItem(members[1], 12);*/
         
         UIManager.instance.ShowMagicToggles();
     }
@@ -156,6 +158,27 @@ public class PartyManager : MonoBehaviour
             selectChars.Remove(members[id]);
         
         members.Remove(members[id]);
-            
     }
+
+    public void DistributeTotalExp(int n)
+    {
+        totalExp += n;
+        int eachHeroExp = totalExp / members.Count;
+
+        foreach (Hero hero in members)
+            hero.ReceiveExp(eachHeroExp);
+    }
+    
+    public bool HeroJoinParty(Character hero)
+    {
+        if (members.Count >= 6)
+            return false;
+
+        hero.CharInit(VFXManager.instance, UIManager.instance,
+            InventoryManager.instance, this);
+
+        members.Add(hero);
+        return true;
+    }
+
 }

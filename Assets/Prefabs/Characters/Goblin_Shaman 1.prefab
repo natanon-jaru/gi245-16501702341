@@ -4492,15 +4492,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db194e8301f2554bbb1ffc595667151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  avatarPic: {fileID: 0}
+  charName: 
   state: 0
   ringSelection: {fileID: 7828132583255678288}
   curHP: 10
+  maxHP: 100
   curCharTarget: {fileID: 0}
   attackRange: 2
   attackDamage: 3
   attackCoolDown: 2
   attackTimer: 0
   findingRange: 20
+  magicSkills: []
+  curMagicCast:
+    id: 0
+    name: 
+    icon: {fileID: 0}
+    range: 0
+    power: 0
+    loadTime: 0
+    shootTime: 0
+    loadId: 0
+    shootId: 0
+  isMagicMode: 0
+  inventoryItems: []
+  mainWeapon:
+    id: 0
+    itemName: 
+    type: 0
+    icon: {fileID: 0}
+    power: 0
+    prefabID: 0
+    normalPrice: 0
+  weaponHand: {fileID: 0}
+  weaponObj: {fileID: 0}
+  weaponPower: 0
+  shield:
+    id: 0
+    itemName: 
+    type: 0
+    icon: {fileID: 0}
+    power: 0
+    prefabID: 0
+    normalPrice: 0
+  shieldHand: {fileID: 0}
+  shieldObj: {fileID: 0}
+  defensePower: 0
+  expDrop: 30
 --- !u!114 &6631166294329872107
 MonoBehaviour:
   m_ObjectHideFlags: 0
