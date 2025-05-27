@@ -5,7 +5,7 @@ public class QuestManager : MonoBehaviour
     [SerializeField] 
     private Npc[] npcPerson;
 
-    private Npc[] NPCPerson{get{return npcPerson;} set{npcPerson = value;}}
+    public Npc[] NPCPerson{get{return npcPerson;} set{npcPerson = value;}}
 
     [SerializeField] 
     private QuestData[] questData;
