@@ -47,11 +47,7 @@ public abstract class Character : MonoBehaviour
     }
 
     [SerializeField] protected int curHP = 10;
-
-    public int CurHP
-    {
-        get { return curHP; }
-    }
+    public int CurHP { get { return curHP; } set { curHP = value; } }
 
     [SerializeField] protected int maxHP = 100;
     public int MaxHP
@@ -67,7 +63,7 @@ public abstract class Character : MonoBehaviour
 
     [SerializeField] 
     protected int attackDamage = 3;
-    public int AttackDamage { get { return attackDamage; } }
+    public int AttackDamage { get { return attackDamage; } set {attackDamage = value; } }
 
     [SerializeField] protected float attackCoolDown = 2f;
 
@@ -121,7 +117,7 @@ public abstract class Character : MonoBehaviour
 
     [SerializeField] 
     protected int defensePower = 0;
-    public int DefensePower { get { return defensePower; } }
+    public int DefensePower { get { return defensePower; } set{defensePower = value; } }
 
     protected VFXManager vfxManager;
     protected UIManager uiManager;

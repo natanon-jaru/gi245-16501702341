@@ -1360,6 +1360,7 @@ MonoBehaviour:
   shieldHand: {fileID: 479758}
   shieldObj: {fileID: 0}
   defensePower: 0
+  prefabId: 1
   exp: 0
   level: 1
   nextExp: 30

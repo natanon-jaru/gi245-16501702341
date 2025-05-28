@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 139151664347315746}
   - component: {fileID: 700299554260282294}
   - component: {fileID: 863761770602725362}
+  - component: {fileID: 8627241184191421815}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -33,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 5240596049802714347}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 53.318943, y: 11.818609, z: 41.678215}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -120,6 +121,13 @@ MonoBehaviour:
   questList: []
   totalExp: 0
   partyMoney: 1000
+  heroData:
+  - {fileID: 11400000, guid: 6fa48de7d6b54914b9727ca5404e5c90, type: 2}
+  - {fileID: 11400000, guid: ebe276db4c406c948a511999d63abcc1, type: 2}
+  - {fileID: 11400000, guid: 84d54de3058cc374e8bd55aa85bc14b5, type: 2}
+  - {fileID: 11400000, guid: 5036cbf68dd08ba4f9fdf3e150709beb, type: 2}
+  - {fileID: 11400000, guid: 049bf752d1b9d2b41a82cb3d32570834, type: 2}
+  - {fileID: 11400000, guid: 3dc461f7f0780e443ad78809cf7c87ac, type: 2}
 --- !u!114 &7538564080600989421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,3 +229,16 @@ MonoBehaviour:
   heroPrefabs:
   - {fileID: 162860, guid: 4aad686250b5cf04fa4db068fd4e3aa0, type: 3}
   - {fileID: 131680, guid: ca48bda03a20d0b4f9507e6b86daaec8, type: 3}
+--- !u!114 &8627241184191421815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5240596049802714347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3340dac320296b478bd55f5e7efe7da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enterPoints: []

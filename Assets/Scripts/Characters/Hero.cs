@@ -3,6 +3,11 @@ using UnityEngine;
 public class Hero : Character
 {
     [SerializeField]
+    private int prefabId;
+    public int PrefabId { get { return prefabId; }}
+
+    //------------------------------------------------------------------------------------------------
+    [SerializeField]
     private int exp;
     public int Exp
     { get { return exp; } set { exp = value; } }
