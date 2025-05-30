@@ -33,9 +33,11 @@ public class GameManager : MonoBehaviour
         hero.CharInit(VFXManager.instance, UIManager.instance,
             InventoryManager.instance, PartyManager.instance);
 
-        InventoryManager.instance.AddItem(hero, 0); 
-        InventoryManager.instance.AddItem(hero, 2); 
-
+        InventoryManager.instance.AddItem(hero, 0);
+        InventoryManager.instance.AddItem(hero, 2);
+        InventoryManager.instance.AddItem(hero, 7);
+        InventoryManager.instance.AddItem(hero, 11);
+        InventoryManager.instance.AddItem(hero, 12);
     }
 
     void Start()
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
         {
             Settings.isNewGame = false;
             GeneratePlayerHero();
+            AudioManager.instance.PlayBGM(1);
         }
 
         if (Settings.isWarping)

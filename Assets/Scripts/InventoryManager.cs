@@ -112,8 +112,35 @@ public class InventoryManager : MonoBehaviour
     void Start()
     {
         AddItemShopToNPC(1,0);
-        AddItemShopToNPC(1,3);
-        AddItemShopToNPC(1,4);
+        AddItemShopToNPC(1,2);
+        AddItemShopToNPC(1,9);
+        AddItemShopToNPC(1,10);
+        /*AddItemShopToNPC(1,11);
+        AddItemShopToNPC(1,12);*/
+        
+        /*//Inventory of Member 0 = male
+        AddItem(PartyManager.instance.Members[0], 0); //Health Potion
+        AddItem(PartyManager.instance.Members[0], 1);
+        AddItem(PartyManager.instance.Members[0], 2);
+        AddItem(PartyManager.instance.Members[0], 3);
+        AddItem(PartyManager.instance.Members[0], 7);
+        AddItem(PartyManager.instance.Members[0], 10);
+        AddItem(PartyManager.instance.Members[0], 11);
+        AddItem(PartyManager.instance.Members[0], 12);
+
+        //Inventory of Member 0 = female
+        AddItem(PartyManager.instance.Members[1], 0); //Health Potion
+        AddItem(PartyManager.instance.Members[1], 1); //Sword
+        AddItem(PartyManager.instance.Members[1], 2); //Shield A
+        AddItem(PartyManager.instance.Members[1], 3); //Shield B
+        AddItem(PartyManager.instance.Members[1], 4);
+        AddItem(PartyManager.instance.Members[1], 5);
+        AddItem(PartyManager.instance.Members[1], 6);
+        AddItem(PartyManager.instance.Members[1], 7);
+        AddItem(PartyManager.instance.Members[1], 8);
+        AddItem(PartyManager.instance.Members[1], 10);
+        AddItem(PartyManager.instance.Members[1], 11);
+        AddItem(PartyManager.instance.Members[1], 12);*/
     }
 
     // Update is called once per frame
@@ -171,6 +198,10 @@ public class InventoryManager : MonoBehaviour
                      Debug.Log($"Removing {hero.InventoryItems[i].ItemName}");
                      hero.InventoryItems[i] = null;
                      Debug.Log($"Removing {hero.InventoryItems[i]}");
+
+                     int questRewardExp = 10;
+                     PartyManager.instance.DistributeTotalExp(questRewardExp);
+                     
                      return true;
                 }
                

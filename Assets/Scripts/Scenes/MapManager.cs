@@ -16,12 +16,22 @@ public class MapManager : MonoBehaviour
 
     public void GoToMap(string mapName, int enterPointId)
     {
-        Settings.isWarping = true;
+        Settings.isWarping  = true;
         Settings.enterPointId = enterPointId;
         Settings.partyCount = PartyManager.instance.Members.Count;
 
         PartyManager.instance.SaveAllHeroData();
-
         SceneManager.LoadScene(mapName);
+
+        switch (mapName)
+        {
+            case "VillageScene":
+                AudioManager.instance.PlayBGM(1);
+                break;
+            case "Dungeon":
+                AudioManager.instance.PlayBGM(3);
+                break;
+        }
     }
+
 }

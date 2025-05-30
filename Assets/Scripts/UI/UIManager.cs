@@ -448,9 +448,12 @@ public class UIManager : MonoBehaviour
 
     private void ToggleDialogueBox(bool flag)
     {
-        downPanel.SetActive(!flag);
-        npcDialoguePanel.SetActive(flag);
-        togglePauseUnpause.isOn = flag;
+        if (downPanel != null)
+            downPanel.SetActive(!flag);
+        if (npcDialoguePanel != null)
+            npcDialoguePanel.SetActive(flag);
+        if (togglePauseUnpause != null)
+            togglePauseUnpause.isOn = flag;
     }
 
     public void PrepareDialogueBox(Npc npc)
